@@ -111,7 +111,6 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em}
   transition:opacity .55s var(--ease),visibility .55s var(--ease);
 }
 .boot.is-done{opacity:0;visibility:hidden}
-.boot{cursor:pointer}
 .boot__inner{
   --node:34px;
   width:min(660px,84vw);
@@ -149,9 +148,29 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em}
   width:var(--node);height:var(--node);border-radius:50%;
   border:1px solid var(--hair);background:var(--paper);
   display:grid;place-items:center;position:relative;
-  font-size:.8rem;line-height:1;color:transparent;
+  color:var(--ink-2);
   transition:background .35s var(--ease),border-color .35s var(--ease),
              color .35s var(--ease),box-shadow .35s var(--ease);
+}
+.ico{
+  width:52%;height:52%;
+  fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* check badge, pops on when the stage finishes */
+.tick{
+  position:absolute;right:-3px;bottom:-3px;
+  width:15px;height:15px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--accent);
+  display:grid;place-items:center;
+  transform:scale(0);opacity:0;
+  transition:transform .3s cubic-bezier(.3,1.5,.5,1),opacity .2s var(--ease);
+}
+.tick svg{
+  width:9px;height:9px;
+  fill:none;stroke:var(--accent);stroke-width:3.5;
+  stroke-linecap:round;stroke-linejoin:round;
 }
 .lbl{
   position:absolute;top:calc(100% + .75rem);
@@ -165,11 +184,13 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em}
   border:1px solid transparent;border-top-color:var(--accent);
   animation:spin .75s linear infinite;
 }
+.boot__stages .is-active .node{color:var(--accent)}
 .boot__stages .is-active .lbl{color:var(--accent)}
 .boot__stages .is-done .node{
   background:var(--accent);border-color:var(--accent);
   color:var(--paper);box-shadow:var(--glow);
 }
+.boot__stages .is-done .tick{transform:scale(1);opacity:1}
 .boot__stages .is-done .lbl{color:var(--ink)}
 @keyframes spin{to{transform:rotate(360deg)}}
 

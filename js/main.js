@@ -140,28 +140,10 @@
   function runBoot() {
     var shown = 0;
     var i = 0;
-    var skipped = false;
-
-    /* impatient visitors can bail out */
-    function skip() {
-      if (skipped) return;
-      skipped = true;
-      if (msgEl) msgEl.textContent = '› skipped. fair enough.';
-      if (pctEl) pctEl.textContent = '100';
-      Array.prototype.forEach.call(stages, function (n) {
-        n.classList.remove('is-active');
-        n.classList.add('is-done');
-      });
-      boot.querySelector('.boot__stages').style.setProperty('--p', 1);
-      finish();
-    }
-    boot.addEventListener('click', skip);
-    document.addEventListener('keydown', skip, { once: true });
 
     setTimeout(step, 420);
 
     function step() {
-      if (skipped) return;
       if (i >= STEPS.length) return finish();
 
       var s = STEPS[i];
