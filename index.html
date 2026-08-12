@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ines Nouri — DevOps Engineer</title>
+<meta name="description" content="Ines Nouri — DevOps Engineer. Infrastructure, automation, CI/CD, observability.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Ines Nouri — DevOps Engineer">
+<meta property="og:description" content="Infrastructure, automation, CI/CD, observability.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111'/><text y='72' x='50' font-size='64' font-family='monospace' fill='%23ff6b4a' text-anchor='middle'>_</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     TODO — fill these in. Search for  [[  to find every slot.
+     Everything marked [[ ... ]] is placeholder copy.
+     ============================================================ -->
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ── SIDEBAR / INDEX ───────────────────────────────────────── -->
+<header class="rail">
+  <div class="rail__id">
+    <span class="rail__name">INES NOURI</span>
+    <span class="rail__role">DevOps Engineer</span>
+  </div>
+
+  <nav class="rail__nav" aria-label="Sections">
+    <ol>
+      <li><a href="#index"      data-num="00">Index</a></li>
+      <li><a href="#about"      data-num="01">About</a></li>
+      <li><a href="#experience" data-num="02">Experience</a></li>
+      <li><a href="#stack"      data-num="03">Stack</a></li>
+      <li><a href="#work"       data-num="04">Selected work</a></li>
+      <li><a href="#contact"    data-num="05">Contact</a></li>
+    </ol>
+  </nav>
+
+  <div class="rail__foot">
+    <button class="tbtn" id="theme" type="button" aria-pressed="false">
+      <span class="tbtn__dot" aria-hidden="true"></span>
+      <span class="tbtn__label">terminal mode</span>
+    </button>
+    <span class="rail__loc" aria-hidden="true">
+      <span id="scrollpct">00</span>%
+    </span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ── 00 · HERO ─────────────────────────────────────────────── -->
+<section class="sec sec--hero" id="index">
+  <div class="hero__meta">
+    <span class="tag">00 / index</span>
+    <span class="status"><i class="status__led" aria-hidden="true"></i>[[ open to opportunities ]]</span>
+  </div>
+
+  <h1 class="hero__type">
+    <span class="line">INES</span>
+    <span class="line line--out">NOURI</span>
+  </h1>
+
+  <div class="hero__grid">
+    <p class="hero__lede">
+      DevOps engineer. I build the boring, reliable machinery that lets
+      software ship — <em>pipelines, infrastructure as code, observability,
+      and the guardrails around them.</em>
+    </p>
+
+    <div class="term" id="term">
+      <div class="term__bar" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <em>ines@prod — zsh</em>
+      </div>
+      <pre class="term__body" aria-label="Terminal introduction"><code id="termout"></code><span class="caret" aria-hidden="true"></span></pre>
+    </div>
+  </div>
+
+  <dl class="facts">
+    <div><dt>Based</dt><dd>[[ City, Country ]]</dd></div>
+    <div><dt>Focus</dt><dd>[[ Kubernetes · IaC · CI/CD ]]</dd></div>
+    <div><dt>Since</dt><dd>[[ 20XX ]]</dd></div>
+    <div><dt>Languages</dt><dd>[[ Arabic · French · English ]]</dd></div>
+  </dl>
+</section>
+
+<!-- ── 01 · ABOUT ────────────────────────────────────────────── -->
+<section class="sec" id="about">
+  <div class="sec__head">
+    <span class="tag">01</span>
+    <h2>About</h2>
+  </div>
+
+  <div class="prose">
+    <p class="prose__big">
+      [[ Two or three sentences on who you are and what you're good at.
+      Write it the way you'd say it out loud — what kind of problems land
+      on your desk, and what you do about them. ]]
+    </p>
+    <p>
+      [[ Second paragraph: how you work. Do you like taming legacy
+      infrastructure? Cutting deploy times? Making on-call quiet?
+      Mentoring devs into owning their own pipelines? Say the thing that
+      makes you different from every other DevOps CV. ]]
+    </p>
+    <p>
+      [[ Third paragraph, optional: certifications, education, what you're
+      currently learning or building. ]]
+    </p>
+  </div>
+
+  <ul class="principles">
+    <li><span>01</span>[[ Automate it the second time you do it by hand. ]]</li>
+    <li><span>02</span>[[ If it isn't monitored, it isn't in production. ]]</li>
+    <li><span>03</span>[[ Boring infrastructure is a feature. ]]</li>
+  </ul>
+</section>
+
+<!-- ── 02 · EXPERIENCE (pipeline) ────────────────────────────── -->
+<section class="sec" id="experience">
+  <div class="sec__head">
+    <span class="tag">02</span>
+    <h2>Experience</h2>
+    <p class="sec__note">most recent first</p>
+  </div>
+
+  <ol class="pipe">
+    <!-- duplicate one <li class="stage"> block per role -->
+    <li class="stage">
+      <div class="stage__when">
+        <span class="stage__date">[[ 2023 ]] — <b>now</b></span>
+        <span class="stage__chip">current</span>
+      </div>
+      <div class="stage__body">
+        <h3>[[ Job title ]] <span class="at">@ [[ Company ]]</span></h3>
+        <p>[[ One line on the scope: team size, what the platform does,
+           what you owned. ]]</p>
+        <ul class="bullets">
+          <li>[[ Achievement with a number — cut deploy time from X to Y. ]]</li>
+          <li>[[ Something you built from zero. ]]</li>
+          <li>[[ Something you fixed that was on fire. ]]</li>
+        </ul>
+        <p class="stage__tools">[[ Kubernetes ]] · [[ Terraform ]] · [[ GitLab CI ]] · [[ AWS ]]</p>
+      </div>
+    </li>
+
+    <li class="stage">
+      <div class="stage__when">
+        <span class="stage__date">[[ 2021 ]] — [[ 2023 ]]</span>
+      </div>
+      <div class="stage__body">
+        <h3>[[ Job title ]] <span class="at">@ [[ Company ]]</span></h3>
+        <p>[[ Scope line. ]]</p>
+        <ul class="bullets">
+          <li>[[ Achievement. ]]</li>
+          <li>[[ Achievement. ]]</li>
+        </ul>
+        <p class="stage__tools">[[ Docker ]] · [[ Ansible ]] · [[ Jenkins ]]</p>
+      </div>
+    </li>
+
+    <li class="stage">
+      <div class="stage__when">
+        <span class="stage__date">[[ 20XX ]] — [[ 20XX ]]</span>
+      </div>
+      <div class="stage__body">
+        <h3>[[ Job title ]] <span class="at">@ [[ Company ]]</span></h3>
+        <p>[[ Scope line. ]]</p>
+        <ul class="bullets">
+          <li>[[ Achievement. ]]</li>
+        </ul>
+        <p class="stage__tools">[[ Linux ]] · [[ Bash ]] · [[ Nginx ]]</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ── 03 · STACK (manifest table) ───────────────────────────── -->
+<section class="sec" id="stack">
+  <div class="sec__head">
+    <span class="tag">03</span>
+    <h2>Stack</h2>
+    <p class="sec__note">tools I reach for</p>
+  </div>
+
+  <div class="manifest">
+    <div class="row">
+      <span class="row__k">cloud</span>
+      <ul class="row__v">
+        <li>[[ AWS ]]</li><li>[[ Azure ]]</li><li>[[ GCP ]]</li><li>[[ OVH ]]</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">orchestration</span>
+      <ul class="row__v">
+        <li>Kubernetes</li><li>Helm</li><li>Docker</li><li>[[ ArgoCD ]]</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">iac</span>
+      <ul class="row__v">
+        <li>Terraform</li><li>Ansible</li><li>[[ Pulumi ]]</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">ci/cd</span>
+      <ul class="row__v">
+        <li>GitLab CI</li><li>GitHub Actions</li><li>Jenkins</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">observability</span>
+      <ul class="row__v">
+        <li>Prometheus</li><li>Grafana</li><li>[[ Loki ]]</li><li>[[ ELK ]]</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">languages</span>
+      <ul class="row__v">
+        <li>Bash</li><li>Python</li><li>[[ Go ]]</li><li>YAML (regrettably)</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">security</span>
+      <ul class="row__v">
+        <li>[[ Vault ]]</li><li>[[ Trivy ]]</li><li>[[ SonarQube ]]</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 · WORK ─────────────────────────────────────────────── -->
+<section class="sec" id="work">
+  <div class="sec__head">
+    <span class="tag">04</span>
+    <h2>Selected work</h2>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <header>
+        <h3>[[ Project name ]]</h3>
+        <span class="card__num">01</span>
+      </header>
+      <p>[[ What it was, what you did, what changed as a result. Two lines. ]]</p>
+      <footer>
+        <span class="card__tools">[[ Terraform · EKS · Argo ]]</span>
+        <!-- optional: <a href="#">repo ↗</a> -->
+      </footer>
+    </article>
+
+    <article class="card">
+      <header>
+        <h3>[[ Project name ]]</h3>
+        <span class="card__num">02</span>
+      </header>
+      <p>[[ Description. ]]</p>
+      <footer><span class="card__tools">[[ Tools ]]</span></footer>
+    </article>
+
+    <article class="card">
+      <header>
+        <h3>[[ Project name ]]</h3>
+        <span class="card__num">03</span>
+      </header>
+      <p>[[ Description. ]]</p>
+      <footer><span class="card__tools">[[ Tools ]]</span></footer>
+    </article>
+  </div>
+</section>
+
+<!-- ── 05 · CONTACT ──────────────────────────────────────────── -->
+<section class="sec sec--contact" id="contact">
+  <div class="sec__head">
+    <span class="tag">05</span>
+    <h2>Contact</h2>
+  </div>
+
+  <p class="contact__lede">
+    Happy to talk about infrastructure, platform work, or anything that
+    should have been automated three years ago.
+  </p>
+
+  <div class="yaml" role="group" aria-label="Contact details">
+    <div class="yaml__file" aria-hidden="true">contact.yaml</div>
+
+    <div class="yaml__line">
+      <span class="k">email</span><span class="c">:</span>
+      <a href="mailto:inesnouri447@gmail.com">inesnouri447@gmail.com</a>
+      <button class="copy" type="button" data-copy="inesnouri447@gmail.com" aria-label="Copy email">copy</button>
+    </div>
+
+    <div class="yaml__line">
+      <span class="k">phone</span><span class="c">:</span>
+      <a href="tel:[[+21620321574]]">[[ +216 20 321 574 ]]</a>
+      <button class="copy" type="button" data-copy="[[ +216 20 321 574 ]]" aria-label="Copy phone number">copy</button>
+    </div>
+
+    <div class="yaml__line">
+      <span class="k">linkedin</span><span class="c">:</span>
+      <a href="https://www.linkedin.com/in/[[ines-nouri-017a87247]]" target="_blank" rel="noopener noreferrer">
+        linkedin.com/in/[[ ines-nouri-017a87247 ]]<span class="ext" aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="yaml__line yaml__line--muted">
+      <span class="k">status</span><span class="c">:</span>
+      <span class="v">[[ open to opportunities ]]</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© <span id="year">2026</span> Ines Nouri</span>
+  <span class="foot__mid" aria-hidden="true">built by hand · no frameworks</span>
+  <a href="#index">back to top ↑</a>
+</footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
