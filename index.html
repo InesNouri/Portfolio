@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,34 @@
 <meta property="og:title" content="Ines Nouri — DevOps Engineer">
 <meta property="og:description" content="Infrastructure, automation, CI/CD, observability.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111'/><text y='72' x='50' font-size='64' font-family='monospace' fill='%23ff6b4a' text-anchor='middle'>_</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a0f0d'/><text y='74' x='50' font-size='64' font-family='monospace' fill='%234ade80' text-anchor='middle'>_</text></svg>">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="is-booting">
+
+<noscript><style>#boot{display:none}.is-booting{overflow:auto!important}</style></noscript>
+
+<!-- ── BOOT / DEPLOY SEQUENCE ────────────────────────────────── -->
+<div class="boot" id="boot" role="status" aria-label="Loading">
+  <div class="boot__inner">
+    <p class="boot__cmd">
+      <span class="p">ines@prod</span><span class="d">:~$</span>
+      deploy --env production --portfolio<span class="caret"></span>
+    </p>
+
+    <ol class="boot__stages" id="stages">
+      <li><span class="node">✓</span><span class="lbl">build</span></li>
+      <li><span class="node">✓</span><span class="lbl">test</span></li>
+      <li><span class="node">✓</span><span class="lbl">deploy</span></li>
+      <li><span class="node">✓</span><span class="lbl">release</span></li>
+    </ol>
+
+    <div class="boot__foot">
+      <span class="boot__msg" id="bootmsg">› initialising…</span>
+      <span class="boot__pct"><span id="bootpct">0</span><i>%</i></span>
+    </div>
+  </div>
+</div>
 
 <!-- ============================================================
      TODO — fill these in. Search for  [[  to find every slot.
@@ -65,26 +89,37 @@
   </h1>
 
   <div class="hero__grid">
-    <p class="hero__lede">
-      DevOps engineer. I build the boring, reliable machinery that lets
-      software ship — <em>pipelines, infrastructure as code, observability,
-      and the guardrails around them.</em>
-    </p>
+    <div class="hero__left">
+      <p class="hero__lede">
+        DevOps engineer. I build the boring, reliable machinery that lets
+        software ship — <em>pipelines, infrastructure as code, observability,
+        and the guardrails around them.</em>
+      </p>
+
+      <div class="actions">
+        <a class="btn btn--key" href="assets/Cv%20Ines%20Nouri%20English.pdf" target="_blank" rel="noopener">
+          View CV<span class="btn__i" aria-hidden="true">↗</span>
+        </a>
+        <a class="btn" href="assets/Cv%20Ines%20Nouri%20English.pdf" download="Ines-Nouri-CV.pdf">
+          Download<span class="btn__i" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
 
     <div class="term" id="term">
       <div class="term__bar" aria-hidden="true">
         <span></span><span></span><span></span>
         <em>ines@prod — zsh</em>
       </div>
-      <pre class="term__body" aria-label="Terminal introduction"><code id="termout"></code><span class="caret" aria-hidden="true"></span></pre>
+      <pre class="term__body" aria-label="Terminal introduction"><code id="termout"></code><span class="caret" id="termcaret" aria-hidden="true"></span></pre>
     </div>
   </div>
 
   <dl class="facts">
-    <div><dt>Based</dt><dd>[[ City, Country ]]</dd></div>
-    <div><dt>Focus</dt><dd>[[ Kubernetes · IaC · CI/CD ]]</dd></div>
-    <div><dt>Since</dt><dd>[[ 20XX ]]</dd></div>
-    <div><dt>Languages</dt><dd>[[ Arabic · French · English ]]</dd></div>
+    <div><dt>Based</dt><dd>Tunis, Tunisia</dd></div>
+    <div><dt>Focus</dt><dd>PowerShell · IaC · CI/CD</dd></div>
+    <div><dt>Since</dt><dd>2023</dd></div>
+    <div><dt>Languages</dt><dd>Arabic · French · English · Spanish</dd></div>
   </dl>
 </section>
 
@@ -114,9 +149,10 @@
   </div>
 
   <ul class="principles">
-    <li><span>01</span>[[ Automate it the second time you do it by hand. ]]</li>
-    <li><span>02</span>[[ If it isn't monitored, it isn't in production. ]]</li>
-    <li><span>03</span>[[ Boring infrastructure is a feature. ]]</li>
+    <li><span>01</span>If I do it twice by hand, I'll spend six hours automating it. The math never works out. I do it anyway.</li>
+    <li><span>02</span>If it isn't monitored, it isn't in production — it's a rumour with a public IP.</li>
+    <li><span>03</span>Nothing ships on Friday. I've met Friday. Friday cannot be trusted.</li>
+    <li><span>04</span>Every "temporary" fix outlives the person who wrote it, so I write them like heirlooms.</li>
   </ul>
 </section>
 
@@ -125,7 +161,7 @@
   <div class="sec__head">
     <span class="tag">02</span>
     <h2>Experience</h2>
-    <p class="sec__note">most recent first</p>
+    <p class="sec__note">most recent first · no gaps, just deployments</p>
   </div>
 
   <ol class="pipe">
@@ -184,50 +220,62 @@
   <div class="sec__head">
     <span class="tag">03</span>
     <h2>Stack</h2>
-    <p class="sec__note">tools I reach for</p>
+    <p class="sec__note">tools I reach for — and the ones that reach back</p>
   </div>
 
   <div class="manifest">
     <div class="row">
-      <span class="row__k">cloud</span>
+      <span class="row__k">cloud &amp; infra</span>
       <ul class="row__v">
-        <li>[[ AWS ]]</li><li>[[ Azure ]]</li><li>[[ GCP ]]</li><li>[[ OVH ]]</li>
-      </ul>
-    </div>
-    <div class="row">
-      <span class="row__k">orchestration</span>
-      <ul class="row__v">
-        <li>Kubernetes</li><li>Helm</li><li>Docker</li><li>[[ ArgoCD ]]</li>
+        <li>AWS</li><li>OVH</li><li>Proxmox</li>
       </ul>
     </div>
     <div class="row">
       <span class="row__k">iac</span>
       <ul class="row__v">
-        <li>Terraform</li><li>Ansible</li><li>[[ Pulumi ]]</li>
+        <li>Terraform</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">containers</span>
+      <ul class="row__v">
+        <li>Docker</li><li>Kubernetes</li>
       </ul>
     </div>
     <div class="row">
       <span class="row__k">ci/cd</span>
       <ul class="row__v">
-        <li>GitLab CI</li><li>GitHub Actions</li><li>Jenkins</li>
+        <li>GitLab CI</li><li>GitHub</li><li>Azure DevOps</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">web &amp; proxy</span>
+      <ul class="row__v">
+        <li>Nginx</li>
       </ul>
     </div>
     <div class="row">
       <span class="row__k">observability</span>
       <ul class="row__v">
-        <li>Prometheus</li><li>Grafana</li><li>[[ Loki ]]</li><li>[[ ELK ]]</li>
+        <li>Prometheus</li><li>Grafana</li>
       </ul>
     </div>
     <div class="row">
       <span class="row__k">languages</span>
       <ul class="row__v">
-        <li>Bash</li><li>Python</li><li>[[ Go ]]</li><li>YAML (regrettably)</li>
+        <li>Bash</li><li>PowerShell</li><li>Python</li><li>Java</li><li>C#</li><li>YAML</li>
       </ul>
     </div>
     <div class="row">
-      <span class="row__k">security</span>
+      <span class="row__k">testing</span>
       <ul class="row__v">
-        <li>[[ Vault ]]</li><li>[[ Trivy ]]</li><li>[[ SonarQube ]]</li>
+        <li>Pester</li>
+      </ul>
+    </div>
+    <div class="row">
+      <span class="row__k">secrets</span>
+      <ul class="row__v">
+        <li>Vault</li>
       </ul>
     </div>
   </div>
@@ -238,6 +286,7 @@
   <div class="sec__head">
     <span class="tag">04</span>
     <h2>Selected work</h2>
+    <p class="sec__note">things that survived production</p>
   </div>
 
   <div class="cards">
@@ -284,6 +333,7 @@
     Happy to talk about infrastructure, platform work, or anything that
     should have been automated three years ago.
   </p>
+  <p class="contact__sub">No recruiters' <em>"quick sync"</em> at 8am, please. Everything else is fair game.</p>
 
   <div class="yaml" role="group" aria-label="Contact details">
     <div class="yaml__file" aria-hidden="true">contact.yaml</div>
@@ -296,27 +346,27 @@
 
     <div class="yaml__line">
       <span class="k">phone</span><span class="c">:</span>
-      <a href="tel:[[+21620321574]]">[[ +216 20 321 574 ]]</a>
-      <button class="copy" type="button" data-copy="[[ +216 20 321 574 ]]" aria-label="Copy phone number">copy</button>
+      <a href="tel:[[+21620321574]]"> +216 20 321 574 </a>
+      <button class="copy" type="button" data-copy=" +216 20 321 574 " aria-label="Copy phone number">copy</button>
     </div>
 
     <div class="yaml__line">
       <span class="k">linkedin</span><span class="c">:</span>
-      <a href="https://www.linkedin.com/in/[[ines-nouri-017a87247]]" target="_blank" rel="noopener noreferrer">
-        linkedin.com/in/[[ ines-nouri-017a87247 ]]<span class="ext" aria-hidden="true">↗</span>
+      <a href="https://www.linkedin.com/in/ines-nouri-017a87247" target="_blank" rel="noopener noreferrer">
+        linkedin.com/in/ines-nouri-017a87247 <span class="ext" aria-hidden="true">↗</span>
       </a>
     </div>
 
     <div class="yaml__line yaml__line--muted">
       <span class="k">status</span><span class="c">:</span>
-      <span class="v">[[ open to opportunities ]]</span>
+      <span class="v"> open to opportunities </span>
     </div>
   </div>
 </section>
 
 <footer class="foot">
   <span>© <span id="year">2026</span> Ines Nouri</span>
-  <span class="foot__mid" aria-hidden="true">built by hand · no frameworks</span>
+  <span class="foot__mid" aria-hidden="true">built by hand · no frameworks · no cookies, no tracking, no popups begging for your email</span>
   <a href="#index">back to top ↑</a>
 </footer>
 

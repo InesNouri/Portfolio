@@ -6,6 +6,7 @@ Static personal site. No build step, no dependencies, no frameworks.
 index.html      structure + all copy
 css/style.css   design tokens, layout, both themes
 js/main.js      theme toggle, terminal typing, scroll spy, copy buttons
+assets/         drop your CV here as ines-nouri-cv.pdf
 .nojekyll       stops GitHub Pages from running Jekyll on the files
 ```
 
@@ -35,6 +36,10 @@ Every placeholder is wrapped in `[[ double brackets ]]`. Search the project for
 | 03 Stack | remove tools you don't use, add ones you do |
 | 04 Selected work | three `<article class="card">` blocks |
 | 05 Contact | **phone number and LinkedIn handle still needed** |
+
+**Your CV:** lives at `assets/Cv Ines Nouri English.pdf`, linked from the two
+hero buttons. Swapping in a differently-named file means updating those two
+links — see `assets/README.md`.
 
 Email is already set to `inouri@intelligencia-it.com`.
 

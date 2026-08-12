@@ -13,9 +13,8 @@
   var saved = null;
   try { saved = localStorage.getItem('theme'); } catch (e) {}
 
-  var initial = saved ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  setTheme(initial);
+  /* terminal is the default look; the toggle remembers your choice */
+  setTheme(saved || 'dark');
 
   function setTheme(mode) {
     root.setAttribute('data-theme', mode);
@@ -38,11 +37,14 @@
      { cmd: 'typed after the prompt', out: ['response lines'] }
      ------------------------------------------------------ */
   var SCRIPT = [
-    { cmd: 'whoami', out: ['ines nouri — devops engineer'] },
+    { cmd: 'whoami', out: [
+        'ines nouri — devops engineer',
+        'running on coffee, stubborn optimism and prayers.'
+    ]},
     { cmd: 'cat mission.txt', out: [
         'keep the pipelines green,',
         'the infrastructure reproducible,',
-        'and the pager quiet.'
+        'and the servers too boring to make the news.'
     ]},
     { cmd: 'kubectl get availability', out: [
         'NAME    STATUS   FOR',
@@ -51,13 +53,19 @@
   ];
 
   var out = document.getElementById('termout');
-  if (out) {
-    if (reduced) {
-      renderStatic();
-    } else {
-      typeAll();
-    }
+  function startTerminal() {
+    if (!out) return;
+    if (reduced) { renderStatic(); } else { typeAll(); }
   }
+
+  /* ── keyboard shortcut: t flips the theme ──────────────── */
+  document.addEventListener('keydown', function (e) {
+    if (/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key.toLowerCase() === 't') {
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+  });
 
   function prompt() {
     var s = document.createElement('span');
@@ -104,6 +112,100 @@
         }
       })();
     })();
+  }
+
+  /* ── boot / deploy sequence ────────────────────────────
+     Plays on every page load. Edit STEPS to change the stages.
+     ------------------------------------------------------ */
+  var STEPS = [
+    { pct:  22, msg: '› compiling personality…',                 hold: 480 },
+    { pct:  54, msg: '› running tests… they pass, i promise',    hold: 520 },
+    { pct:  88, msg: '› deploying on a friday, as one does…',    hold: 720 },
+    { pct: 100, msg: '› live. nothing exploded.',                hold: 420 }
+  ];
+
+  var boot   = document.getElementById('boot');
+  var stages = boot ? boot.querySelectorAll('#stages li') : [];
+  var msgEl  = document.getElementById('bootmsg');
+  var pctEl  = document.getElementById('bootpct');
+
+  if (!boot || reduced) {
+    if (boot) boot.parentNode.removeChild(boot);
+    document.body.classList.remove('is-booting');
+    startTerminal();
+  } else {
+    runBoot();
+  }
+
+  function runBoot() {
+    var shown = 0;
+    var i = 0;
+    var skipped = false;
+
+    /* impatient visitors can bail out */
+    function skip() {
+      if (skipped) return;
+      skipped = true;
+      if (msgEl) msgEl.textContent = '› skipped. fair enough.';
+      if (pctEl) pctEl.textContent = '100';
+      Array.prototype.forEach.call(stages, function (n) {
+        n.classList.remove('is-active');
+        n.classList.add('is-done');
+      });
+      boot.querySelector('.boot__stages').style.setProperty('--p', 1);
+      finish();
+    }
+    boot.addEventListener('click', skip);
+    document.addEventListener('keydown', skip, { once: true });
+
+    setTimeout(step, 420);
+
+    function step() {
+      if (skipped) return;
+      if (i >= STEPS.length) return finish();
+
+      var s = STEPS[i];
+      var node = stages[i];
+
+      if (node) node.classList.add('is-active');
+      if (msgEl) msgEl.textContent = s.msg;
+      boot.querySelector('.boot__stages').style.setProperty('--p', (i + 1) / stages.length);
+
+      tween(shown, s.pct, s.hold);
+      shown = s.pct;
+
+      setTimeout(function () {
+        if (node) { node.classList.remove('is-active'); node.classList.add('is-done'); }
+        i++;
+        step();
+      }, s.hold);
+    }
+
+    var finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      setTimeout(function () {
+        boot.classList.add('is-done');
+        document.body.classList.remove('is-booting');
+        startTerminal();
+        setTimeout(function () {
+          if (boot.parentNode) boot.parentNode.removeChild(boot);
+        }, 700);
+      }, 340);
+    }
+  }
+
+  /* count the percentage up smoothly between two values */
+  function tween(from, to, ms) {
+    if (!pctEl) return;
+    var t0 = null;
+    requestAnimationFrame(function frame(t) {
+      if (t0 === null) t0 = t;
+      var k = Math.min((t - t0) / ms, 1);
+      pctEl.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(frame);
+    });
   }
 
   /* ── scroll spy ────────────────────────────────────────── */
@@ -162,7 +264,7 @@
   }
 
   /* ── copy buttons ──────────────────────────────────────── */
-  document.querySelectorAll('.copy').forEach(function (b) {
+  document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var text = b.getAttribute('data-copy');
       var done = function () {
