@@ -39,7 +39,7 @@
   var SCRIPT = [
     { cmd: 'whoami', out: [
         'ines nouri — devops engineer',
-        'running on coffee, stubborn optimism and prayers.'
+        'running on way too much coffee, stubborn optimism and prayers.'
     ]},
     { cmd: 'cat mission.txt', out: [
         'keep the pipelines green,',
@@ -118,10 +118,10 @@
      Plays on every page load. Edit STEPS to change the stages.
      ------------------------------------------------------ */
   var STEPS = [
-    { pct:  22, msg: '› compiling personality…',                 hold: 480 },
-    { pct:  54, msg: '› running tests… they pass, i promise',    hold: 520 },
-    { pct:  88, msg: '› deploying on a friday, as one does…',    hold: 720 },
-    { pct: 100, msg: '› live. nothing exploded.',                hold: 420 }
+    { pct:  22, msg: '› compiling personality…',                 hold:  900 },
+    { pct:  54, msg: '› running tests… they pass, i promise',    hold: 1000 },
+    { pct:  88, msg: '› deploying on a friday, as one does…',    hold: 1150 },
+    { pct: 100, msg: '› live. nothing exploded.',                hold:  850 }
   ];
 
   var boot   = document.getElementById('boot');
@@ -188,6 +188,31 @@
       pctEl.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)));
       if (k < 1) requestAnimationFrame(frame);
     });
+  }
+
+  /* ── the background follows the cursor ─────────────────
+     Skipped on touch (no hover) and for reduced motion.
+     ------------------------------------------------------ */
+  var glow = document.getElementById('glow');
+  if (glow && !reduced && window.matchMedia('(hover: hover)').matches) {
+    var gx = 0, gy = 0, queued = false;
+
+    window.addEventListener('pointermove', function (e) {
+      gx = e.clientX;
+      gy = e.clientY;
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () {
+        glow.style.setProperty('--mx', gx + 'px');
+        glow.style.setProperty('--my', gy + 'px');
+        glow.classList.add('on');
+        queued = false;
+      });
+    }, { passive: true });
+
+    /* fade out when the pointer leaves the window */
+    document.addEventListener('mouseleave', function () { glow.classList.remove('on'); });
+    document.addEventListener('mouseenter', function () { glow.classList.add('on'); });
   }
 
   /* ── scroll spy ────────────────────────────────────────── */

@@ -13,6 +13,7 @@
   --accent:#2e9e6b;
   --accent-2:#7fc9a4;
   --accent-soft:rgba(46,158,107,.09);
+  --cursor-glow:rgba(46,158,107,.09);
   --glow:none;
   --panel:#fffffe;
   --panel-2:rgba(255,255,255,.6);
@@ -44,6 +45,7 @@
   --accent:#6fcf9b;
   --accent-2:#a8e6c4;
   --accent-soft:rgba(111,207,155,.08);
+  --cursor-glow:rgba(111,207,155,.13);
   --glow:0 0 18px rgba(111,207,155,.14);
   --panel:#1a211d;
   --panel-2:rgba(190,255,220,.025);
@@ -91,6 +93,17 @@ body::after{
     radial-gradient(ellipse 50% 38% at 2% 22%,var(--accent-soft),transparent 66%),
     radial-gradient(ellipse 65% 36% at 60% 104%,var(--accent-soft),transparent 68%);
 }
+
+/* light that follows the cursor */
+.glow{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:0;transition:opacity .7s var(--ease);
+  background:radial-gradient(
+    360px circle at var(--mx,50vw) var(--my,50vh),
+    var(--cursor-glow),transparent 68%
+  );
+}
+.glow.on{opacity:1}
 
 a{color:inherit}
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.02em}
@@ -453,12 +466,14 @@ main{position:relative;z-index:1;margin-left:var(--rail-w)}
 .row:hover .row__k{color:var(--accent)}
 .row__k{
   font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--ink-2);transition:color .22s;
+  text-transform:uppercase;color:var(--ink-2);cursor:default;
+  transition:color .22s;
 }
 .row__v{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.15rem 0}
 .row__v li{
   font-family:var(--mono);font-size:.8rem;
   padding:0 .85rem;position:relative;
+  cursor:default;
   transition:color .2s var(--ease);
 }
 .row__v li:first-child{padding-left:0}
