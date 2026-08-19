@@ -103,8 +103,8 @@
       <li><a href="#index"      data-num="00">Index</a></li>
       <li><a href="#about"      data-num="01">About</a></li>
       <li><a href="#experience" data-num="02">Experience</a></li>
-      <li><a href="#stack"      data-num="03">Stack</a></li>
-      <li><a href="#work"       data-num="04">Selected work</a></li>
+      <li><a href="#work"       data-num="03">Projects</a></li>
+      <li><a href="#stack"      data-num="04">Stack</a></li>
       <li><a href="#contact"    data-num="05">Contact</a></li>
     </ol>
   </nav>
@@ -261,10 +261,595 @@
   </ol>
 </section>
 
-<!-- ── 03 · STACK (manifest table) ───────────────────────────── -->
-<section class="sec" id="stack">
+<!-- ── 03 · PROJECTS ─────────────────────────────────────────── -->
+<section class="sec" id="work">
   <div class="sec__head">
     <span class="tag">03</span>
+    <h2>Projects</h2>
+    <p class="sec__note">things that survived production</p>
+  </div>
+
+  <div class="slider__head">
+    <p class="cards__label">select a project to read the detail</p>
+    <div class="slider__nav">
+      <button class="arrow" type="button" data-dir="-1" aria-label="Previous projects" aria-controls="track">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button class="arrow" type="button" data-dir="1" aria-label="Next projects" aria-controls="track">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Each card opens the panel in the <template> with the same id.
+       To add a project: copy a card, copy its template, match ids.
+       ============================================================ -->
+  <div class="cards" id="track" tabindex="0" role="group" aria-label="Projects, scrollable">
+
+    <button class="card" type="button" data-proj="mbdeploy">
+      <span class="card__top">
+        <span class="card__name">Trading platform deployment pipeline</span>
+        <span class="card__num">01</span>
+      </span>
+      <span class="card__desc">
+        GitLab CI and PowerShell pipeline that builds a .NET trading platform and
+        deploys it per client — Vault-driven config templating, Windows services,
+        IIS, database imports and smoke tests.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">GitLab CI · PowerShell · Vault</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="mbdigital">
+      <span class="card__top">
+        <span class="card__name">White-label CI/CD orchestrator</span>
+        <span class="card__num">02</span>
+      </span>
+      <span class="card__desc">
+        A source-free orchestrator repo that clones three app repos, injects a
+        client's branding, and deploys web, mobile and .NET backend from one
+        pipeline with a dropdown.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">GitLab CI · PowerShell · IIS</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="crm">
+      <span class="card__top">
+        <span class="card__name">Connexa</span>
+        <span class="card__num">03</span>
+      </span>
+      <span class="card__desc">
+        Internal sales CRM — contacts, pipeline, tasks, meetings and team
+        management, with three roles sharing one interface but seeing different
+        data and different actions.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">React · TypeScript · Firebase</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="roamigo">
+      <span class="card__top">
+        <span class="card__name">Roamigo <span class="wip" data-full="in progress">wip</span></span>
+        <span class="card__num">04</span>
+      </span>
+      <span class="card__desc">
+        A travel-planning assistant — chat, trip planner, budget tracker and a map you
+        can search and pin, built on OpenStreetMap rather than a paid maps API.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">FastAPI · Leaflet · vanilla JS</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="siflow">
+      <span class="card__top">
+        <span class="card__name">Siflow</span>
+        <span class="card__num">05</span>
+      </span>
+      <span class="card__desc">
+        AWS cloud infrastructure for a data analytics platform — provisioned with
+        Terraform, secured, monitored, and shipped through a review-gated pipeline.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">AWS · Terraform</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="allodoc">
+      <span class="card__top">
+        <span class="card__name">AlloDoc</span>
+        <span class="card__num">06</span>
+      </span>
+      <span class="card__desc">
+        Android healthcare app — doctors directory, appointment booking, and a
+        location-based finder for pharmacies that are open or on night duty.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">Java · Android · Firebase</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+    <button class="card" type="button" data-proj="tawsila">
+      <span class="card__top">
+        <span class="card__name">Tawsila</span>
+        <span class="card__num">07</span>
+      </span>
+      <span class="card__desc">
+        Native Android app for taxi and transport services, designed and built end
+        to end — from Figma mockups through to a Firebase backend.
+      </span>
+      <span class="card__foot">
+        <span class="card__tools">Java · Android · Figma</span>
+        <span class="card__go" aria-hidden="true">open</span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- ── detail panels ───────────────────────────────────── -->
+
+  <template data-panel="mbdeploy">
+    <p class="modal__sub">GitLab CI · PowerShell · HashiCorp Vault · Windows</p>
+
+    <p class="modal__lede">
+      End-to-end deployment for a multi-client .NET trading platform: source is built
+      on a Windows runner, binaries land in the install tree, then every config file is
+      regenerated from the client's secrets in <b>Vault</b> before the service and IIS
+      sites come back up. One pipeline, one client, one environment per run.
+    </p>
+
+    <div class="flow" aria-label="Pipeline stages">
+      <span>test</span>
+      <span>validate</span>
+      <span>vault</span>
+      <span>fetch</span>
+      <span>build</span>
+      <span>deploy</span>
+      <span class="flow__end">smoke</span>
+    </div>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Config from Vault, not from git</h4>
+        <p>Tokenised templates plus a client's secrets are resolved into live config at
+           deploy time — IPs, database servers and credentials never sit in a repo.
+           Two index-matched manifests map each template to where its output belongs,
+           so retargeting a file is a one-line change.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>One build engine, two repo layouts</h4>
+        <p>Release and legacy branches have genuinely different project structures.
+           Rather than fork the scripts, the engine detects which layout it's looking
+           at and adapts — self-publishing components to a local NuGet feed on one,
+           repairing broken references and discovering projects by name on the other.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Deploy sequencing</h4>
+        <p>Backup, ensure structure, copy binaries, regenerate config, import databases,
+           stop services, install and start, then IIS. The order is the design: the copy
+           step lays down build-time config, and generation deliberately runs after it to
+           overwrite those values.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Non-destructive by default</h4>
+        <p>Copies are additive rather than mirrored, after a mirror once removed
+           hand-placed binaries. Backups keep the last two generations. Rollback is
+           intentionally off — a failed deploy is left standing so it can be diagnosed
+           instead of vanishing.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Component-scoped</h4>
+        <p>Each deploy targets a single component, so its siblings keep running.
+           Services are stopped only within scope and always restarted in a
+           <em>finally</em> block — a crash mid-deploy never leaves the platform down.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Guardrails</h4>
+        <p>Pester unit tests and PSScriptAnalyzer gate the pipeline before anything is
+           built. Smoke tests close it out by checking the service state, the IIS
+           endpoints, both database engines and reporting services.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Bugs worth the scar tissue</h4>
+        <p>Regex replacement was silently eating <em>$</em> characters out of database
+           passwords, producing access-denied at runtime — swapped for literal replace.
+           IIS was also serving a stale published config rather than the generated one,
+           which surfaced as a null reference on the login page.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">GitLab CI · PowerShell · HashiCorp Vault · MSBuild · .NET · IIS · Windows Services · MySQL · SQL Server · SSRS · Pester · PSScriptAnalyzer · robocopy</p>
+  </template>
+
+  <template data-panel="mbdigital">
+    <p class="modal__sub">GitLab CI · PowerShell · IIS · white-label delivery</p>
+
+    <p class="modal__lede">
+      A deployment orchestrator holding <b>no application source</b> at all. It clones
+      each app repo, injects the chosen client's branding, builds it, and ships it —
+      Angular web and Ionic mobile to IIS sites, the .NET backend to a Windows service.
+      Which app and which client are two dropdowns on the run screen.
+    </p>
+
+    <div class="flow" aria-label="Dispatcher routing">
+      <span>run pipeline</span>
+      <span>validate</span>
+      <span>dispatch</span>
+      <span>clone + inject</span>
+      <span>build</span>
+      <span class="flow__end">deploy</span>
+    </div>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Dispatcher pattern</h4>
+        <p>A single root pipeline routes to one of three child pipelines based on the
+           chosen platform. Config-level includes couldn't reliably see the variable at
+           evaluation time, so routing moved to job-level rules on bridge jobs, with an
+           always-on validate job guaranteeing the config is never empty.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>White-label injection</h4>
+        <p>Each client is a folder of config and assets. Before every build, a generator
+           writes the environment files, rewrites the brand colour tokens in the
+           stylesheet and swaps in that client's logos — so one codebase ships as any
+           number of separately branded products.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Three targets, one repo</h4>
+        <p>Web and mobile mirror their build output into IIS site folders; the backend
+           is published self-contained, its service stopped, overwritten and restarted.
+           The backend skips branding and IIS entirely — same skeleton, different tail.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Idempotent IIS provisioning</h4>
+        <p>A PowerShell script driven by a site registry guarantees each site exists,
+           points at the right folder and holds its port — including taking a port back
+           from another site that had claimed it, which was breaking site startup.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Auto-staging, manual production</h4>
+        <p>A push to an app repo triggers the orchestrator and deploys straight to
+           staging; production always waits behind a manual button. A child pipeline
+           can't see what originally triggered it, so intent is carried explicitly as a
+           forwarded variable.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Windows-specific wrangling</h4>
+        <p>Cloning outside the runner workspace into a short path to dodge path-length
+           limits; skipping Git LFS on clone and pulling only the selected client's
+           assets after a flaky endpoint kept failing; extra npm timeouts and a retry
+           for native modules that fetch binaries at install time.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Documented for handover</h4>
+        <p>Written up as a full reference — architecture diagrams, per-phase tables, a
+           variables reference, runner prerequisites, and a troubleshooting table
+           pairing every failure seen in anger with its cause and fix.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">GitLab CI · PowerShell · IIS · Angular · Ionic · .NET / ASP.NET Core · Node.js · Git LFS · robocopy · Windows Services</p>
+  </template>
+
+  <template data-panel="crm">
+    <p class="modal__sub">Internal sales CRM · end-of-study project</p>
+
+    <p class="modal__lede">
+      A single-page CRM covering contacts, the sales pipeline, tasks, meetings and the
+      sales team itself. Three roles — <b>admin</b>, <b>manager</b> and <b>sales rep</b> —
+      share one interface, but each sees a different slice of the data and a different
+      set of actions.
+    </p>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>No application server</h4>
+        <p>The front end talks straight to Firestore. A single callable Cloud Function
+           exists for the one operation that genuinely needs elevated rights — deleting
+           a team member from Auth as well as from the database, which a client SDK
+           can't do.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Roles as data filters</h4>
+        <p>A rep sees only the contacts and prospects assigned to them, and a personal
+           dashboard. A manager sees everything, assigns work, and gets per-rep
+           statistics. The admin adds full team CRUD on top. Navigation and module
+           access are both driven by the same role list.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Mirrored profiles</h4>
+        <p>Each user's full profile lives in one collection, with a slimmed-down copy in
+           another. That mirror lets managers list the whole team without granting broad
+           read access over the profile collection — a deliberate trade of a little
+           duplication for a smaller blast radius.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Creating users without logging out</h4>
+        <p>Creating an account through the client SDK signs you in as the new user.
+           Account creation therefore runs against a throwaway secondary Firebase app
+           instance, so the admin's own session survives it.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Readable IDs</h4>
+        <p>Contacts, prospects and projects each carry a short human-readable number,
+           generated through a Firestore transaction against a counter document so
+           concurrent writes can't collide on the same value.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>The modules</h4>
+        <p>Dashboard aggregating revenue, pipeline and overdue work; contacts split
+           across clients, suppliers and partners; a prospect pipeline that converts a
+           won deal into a client; a drag-and-drop task board plus a managerial view
+           over the whole team's tasks; a meetings calendar; and PDF export for team
+           records.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Known limitation</h4>
+        <p>Role separation is enforced in the client, not in the database rules — fine
+           for an internal tool with no public access, and account deletion is protected
+           server-side, but tightening the rules would be the first job before opening
+           it up. Worth stating plainly rather than pretending otherwise.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">React 18 · TypeScript · Vite · Tailwind CSS · shadcn/ui · Radix UI · Firebase Authentication · Cloud Firestore · Cloud Functions · react-dnd · Recharts · jsPDF</p>
+  </template>
+
+  <template data-panel="siflow">
+    <p class="modal__sub">Cloud infrastructure &amp; DevOps · master's end-of-study project</p>
+
+    <p class="modal__lede">
+      Designed, deployed, secured and monitored the AWS environment behind a data
+      analytics platform — replacing click-ops with reproducible Terraform across
+      multiple availability zones in <b>eu-west-3</b>.
+    </p>
+
+    <div class="flow" aria-label="Terraform delivery pipeline">
+      <span>pull request</span>
+      <span>validate</span>
+      <span>plan</span>
+      <span>review</span>
+      <span>merge</span>
+      <span class="flow__end">apply</span>
+    </div>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Networking</h4>
+        <p>VPC spanning multiple AZs: public and private subnets, route tables,
+           Internet Gateway, NAT Gateway for private outbound, an S3 VPC endpoint,
+           and security groups scoped per service-to-service path.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Infrastructure as code</h4>
+        <p>Everything provisioned with Terraform, structured into modules with an
+           S3 remote backend for state. RDS, Redshift Serverless, DMS, ECS, Lambda,
+           ALB and API Gateway all defined in code.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Security</h4>
+        <p>Credentials for RDS, Redshift and DMS held in Secrets Manager, IAM roles
+           per service, network-level control via security groups, and internal
+           resources kept off the public network entirely.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Observability</h4>
+        <p>CloudWatch log groups, dashboards and alarms wired to SNS — watching CPU,
+           disk, Redshift query duration and DMS CDC latency. Cost Explorer tracked
+           what the whole thing actually spent.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Delivery</h4>
+        <p>An Azure DevOps pipeline running validate and plan on every pull request,
+           with apply gated behind code review and a merge to main.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Local loop</h4>
+        <p>LocalStack and Docker under WSL, so infrastructure changes could be tried
+           out before anything reached a real account.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">Azure DevOps · Terraform · AWS · VPC · RDS · Redshift Serverless · DMS · ECS · Lambda · API Gateway · ALB · IAM · Secrets Manager · CloudWatch · SNS</p>
+  </template>
+
+  <template data-panel="roamigo">
+    <p class="modal__sub">Travel-planning assistant</p>
+
+    <p class="modal__lede">
+      A trip planner built around a chat assistant: plan an itinerary, track a budget,
+      and search and pin places on a map — running entirely on <b>OpenStreetMap</b>
+      rather than a paid maps API. A FastAPI backend behind a dashboard written without
+      a framework or a build step.
+    </p>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Interface built separately</h4>
+        <p>The whole front end was designed and built as its own standalone project
+           first — plain HTML, CSS and JavaScript — then brought in as the template this
+           app is built on, rather than being grown piecemeal alongside the backend.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Six pages, no framework</h4>
+        <p>Dashboard, chat, map, trips, itinerary and settings — around 2,300 lines of
+           hand-written HTML, CSS and JavaScript. No React, no bundler, no build step;
+           the page loads and runs.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Maps without a bill</h4>
+        <p>Leaflet for the map, OpenStreetMap's Nominatim for place search, and the
+           Overpass API for finding amenities by category in a city. No maps provider
+           key and no billing account attached to a side project.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>State that survives a reload</h4>
+        <p>Chats, trips, markers, budget, profile, preferences and theme all persist in
+           local storage behind a single key map, with read and write helpers that fail
+           safe on corrupt data instead of throwing.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Layered backend</h4>
+        <p>FastAPI split into routers, services, ORM models and schemas, with the
+           database session injected per request and outbound HTTP calls isolated behind
+           a service function — so swapping the places provider touches one file.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Degrades rather than breaks</h4>
+        <p>Leaflet loads from a CDN, so map setup waits for the library to appear rather
+           than assuming it's there — an unreachable CDN costs you the map, not the
+           whole page.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>What's still missing</h4>
+        <p>The two halves aren't wired together yet: the interface is complete and the
+           places endpoint works, but chat and itinerary generation are still
+           placeholders. Connecting them, then giving the assistant a real model to
+           answer with, is the next piece of work.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">Python · FastAPI · SQLAlchemy · Pydantic · SQLite · Uvicorn · JavaScript · Leaflet · OpenStreetMap · Nominatim · Overpass API</p>
+  </template>
+
+  <template data-panel="allodoc">
+    <p class="modal__sub">Android healthcare application · in progress</p>
+
+    <p class="modal__lede">
+      A healthcare app that goes past being a static directory — it uses where you
+      actually are to tell you which medical services are open to you right now.
+    </p>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Medical services</h4>
+        <p>Directory of doctors with profiles and specialties, direct contact with
+           medical staff, and appointment booking — either at the practice or as a
+           home visit, with management and cancellation.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Pharmacy finder</h4>
+        <p>The strongest piece: finds pharmacies near the user and shows whether each
+           is open, closed, or <em>de service</em> — the on-duty rota that matters at
+           2am on a holiday weekend, when everything else is shut.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Location-aware</h4>
+        <p>The user's position drives what the app surfaces, from nearby pharmacies
+           through to home consultations, rather than showing everyone the same list.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Backend</h4>
+        <p>Firebase Authentication for accounts, Cloud Firestore holding doctors,
+           patients, appointments and medical records, and Cloud Messaging pushing
+           appointment and service notifications.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>In progress</h4>
+        <p>A nutrition forum for community questions and discussion with nutrition
+           professionals, plus a healthcare chatbot to help users navigate the app,
+           find the right service, and answer general health questions.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">Java · Android · XML · Firebase Authentication · Cloud Firestore · Firebase Cloud Messaging</p>
+  </template>
+
+  <template data-panel="tawsila">
+    <p class="modal__sub">Taxi &amp; transportation Android application</p>
+
+    <p class="modal__lede">
+      A mobile interface for taxi and transport services, taken from blank Figma
+      canvas to working Android app — design, layouts, logic and backend all mine.
+    </p>
+
+    <div class="flow" aria-label="Build workflow">
+      <span>Figma</span>
+      <span>XML layouts</span>
+      <span>Java logic</span>
+      <span class="flow__end">Firebase</span>
+    </div>
+
+    <div class="feat__grid">
+      <div class="feat__block">
+        <h4>Native Android</h4>
+        <p>Built natively rather than cross-platform: Java for behaviour and
+           interaction, XML for structuring and styling every screen.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Design</h4>
+        <p>Interfaces designed in Figma first, then translated into XML layouts —
+           so the UI was a decision made deliberately, not whatever fell out of the
+           layout editor.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>Cloud backend</h4>
+        <p>Firebase supplied the backend services, letting the app talk to the cloud
+           without standing up and maintaining custom infrastructure for it.</p>
+      </div>
+
+      <div class="feat__block">
+        <h4>What it taught me</h4>
+        <p>Hands-on native Android development, cloud service integration, UI/UX
+           design and mobile application architecture — end to end, on my own.</p>
+      </div>
+    </div>
+
+    <p class="modal__tools">Java · Android · XML · Firebase · Figma</p>
+  </template>
+</section>
+
+<!-- ── 04 · STACK (manifest table) ───────────────────────────── -->
+<section class="sec" id="stack">
+  <div class="sec__head">
+    <span class="tag">04</span>
     <h2>Stack</h2>
     <p class="sec__note">tools I reach for — and the ones that reach back</p>
   </div>
@@ -327,47 +912,6 @@
   </div>
 </section>
 
-<!-- ── 04 · WORK ─────────────────────────────────────────────── -->
-<section class="sec" id="work">
-  <div class="sec__head">
-    <span class="tag">04</span>
-    <h2>Selected work</h2>
-    <p class="sec__note">things that survived production</p>
-  </div>
-
-  <div class="cards">
-    <article class="card">
-      <header>
-        <h3>[[ Project name ]]</h3>
-        <span class="card__num">01</span>
-      </header>
-      <p>[[ What it was, what you did, what changed as a result. Two lines. ]]</p>
-      <footer>
-        <span class="card__tools">[[ Terraform · EKS · Argo ]]</span>
-        <!-- optional: <a href="#">repo ↗</a> -->
-      </footer>
-    </article>
-
-    <article class="card">
-      <header>
-        <h3>[[ Project name ]]</h3>
-        <span class="card__num">02</span>
-      </header>
-      <p>[[ Description. ]]</p>
-      <footer><span class="card__tools">[[ Tools ]]</span></footer>
-    </article>
-
-    <article class="card">
-      <header>
-        <h3>[[ Project name ]]</h3>
-        <span class="card__num">03</span>
-      </header>
-      <p>[[ Description. ]]</p>
-      <footer><span class="card__tools">[[ Tools ]]</span></footer>
-    </article>
-  </div>
-</section>
-
 <!-- ── 05 · CONTACT ──────────────────────────────────────────── -->
 <section class="sec sec--contact" id="contact">
   <div class="sec__head">
@@ -417,6 +961,19 @@
 </footer>
 
 </main>
+
+<!-- ── project detail window ─────────────────────────────────── -->
+<dialog class="modal" id="modal" aria-labelledby="modaltitle">
+  <div class="modal__bar">
+    <span class="modal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+    <em class="modal__file" id="modalfile">project.md</em>
+    <button class="modal__x" type="button" data-close aria-label="Close">esc ✕</button>
+  </div>
+  <div class="modal__scroll">
+    <h3 class="modal__title" id="modaltitle"></h3>
+    <div id="modalbody"></div>
+  </div>
+</dialog>
 
 <script src="js/main.js"></script>
 </body>

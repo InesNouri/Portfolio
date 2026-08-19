@@ -237,7 +237,7 @@
   /* ── reveal on scroll ──────────────────────────────────── */
   if ('IntersectionObserver' in window && !reduced) {
     var targets = document.querySelectorAll(
-      '.sec__head, .prose, .principles, .stage, .row, .card, .yaml, .contact__lede, .facts'
+      '.sec__head, .prose, .principles, .stage, .row, .slider__head, .cards, .yaml, .contact__lede, .facts'
     );
     var rev = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
@@ -268,6 +268,108 @@
         ticking = false;
       });
     }, { passive: true });
+  }
+
+  /* ── project slider ────────────────────────────────────
+     Arrows scroll the track by one card; they disable
+     themselves at each end.
+     ------------------------------------------------------ */
+  var track = document.getElementById('track');
+  var arrows = document.querySelectorAll('.arrow[data-dir]');
+
+  if (track && arrows.length) {
+    var step = function () {
+      var card = track.querySelector('.card');
+      if (!card) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    Array.prototype.forEach.call(arrows, function (a) {
+      a.addEventListener('click', function () {
+        track.scrollBy({
+          left: step() * Number(a.getAttribute('data-dir')),
+          behavior: reduced ? 'auto' : 'smooth'
+        });
+      });
+    });
+
+    var syncArrows = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      var x = track.scrollLeft;
+      Array.prototype.forEach.call(arrows, function (a) {
+        var back = Number(a.getAttribute('data-dir')) < 0;
+        a.disabled = back ? x <= 1 : x >= max - 1;
+      });
+    };
+
+    var pending = false;
+    track.addEventListener('scroll', function () {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () { syncArrows(); pending = false; });
+    }, { passive: true });
+
+    window.addEventListener('resize', syncArrows);
+    syncArrows();
+  }
+
+  /* ── project window ────────────────────────────────────
+     Each .card[data-proj] opens the <template data-panel>
+     that carries the same name.
+     ------------------------------------------------------ */
+  var modal = document.getElementById('modal');
+
+  if (modal && typeof modal.showModal === 'function') {
+    var mBody = document.getElementById('modalbody');
+    var mTitle = document.getElementById('modaltitle');
+    var mFile = document.getElementById('modalfile');
+    var opener = null;
+
+    document.querySelectorAll('.card[data-proj]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var key = card.getAttribute('data-proj');
+        var tpl = document.querySelector('template[data-panel="' + key + '"]');
+        if (!tpl) return;
+
+        /* keep the card's own markup in the title, so a status pill
+           stays a pill — expanded via data-full if it carries one */
+        var name = card.querySelector('.card__name');
+        mTitle.textContent = '';
+        if (name) {
+          var head = name.cloneNode(true);
+          head.querySelectorAll('[data-full]').forEach(function (pill) {
+            pill.textContent = pill.getAttribute('data-full');
+          });
+          while (head.firstChild) mTitle.appendChild(head.firstChild);
+        } else {
+          mTitle.textContent = key;
+        }
+        mFile.textContent = key + '.md';
+
+        mBody.textContent = '';
+        mBody.appendChild(tpl.content.cloneNode(true));
+
+        opener = card;
+        modal.showModal();
+        modal.querySelector('.modal__scroll').scrollTop = 0;
+      });
+    });
+
+    /* close: the button, or a click on the backdrop */
+    modal.querySelector('[data-close]').addEventListener('click', function () {
+      modal.close();
+    });
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.close();
+    });
+
+    /* hand focus back to the card that opened it */
+    modal.addEventListener('close', function () {
+      mBody.textContent = '';
+      if (opener) { opener.focus(); opener = null; }
+    });
   }
 
   /* ── copy buttons ──────────────────────────────────────── */
