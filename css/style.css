@@ -441,6 +441,7 @@ main{position:relative;z-index:1;margin-left:var(--rail-w)}
   color:var(--accent);border:1px solid var(--accent);
   padding:.1rem .4rem;border-radius:var(--r-sm);opacity:.85;
 }
+.stage__chip--soft{color:var(--ink-2);border-color:var(--hair)}
 .stage h3{font-size:clamp(1.1rem,2.1vw,1.4rem);margin-bottom:.5rem}
 .stage h3 .at{color:var(--ink-2);font-weight:400}
 .stage__body>p{margin:0 0 .85rem;color:var(--ink-2);max-width:60ch}
